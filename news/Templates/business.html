@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="max-width: 1200px; margin: 50px auto; padding: 20px; background-color: rgba(255, 255, 255, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+    <h1 style="color: #333; text-align: center;">Business News</h1>
+
+    {% for i in a %}
+        {% if i.description and i.title is not None and '[Removed]' not in i.title %}
+            <div style="display: flex; margin-bottom: 20px; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+                <img src="{{i.urlToImage}}" alt="News Image" style="border-radius: 8px; width: 150px; height: 100px; margin-right: 20px;">
+                <div>
+                    <h2 style="margin: 0; font-size: 20px; color: #0056b3;">{{i.title}}</h2>
+                    <p style="font-size: 14px; color: #555;">{{i.description}}</p>
+                    <span style="color: #999; font-size: 12px;"><a href="{{i.url}}">Read More</a></span>
+                </div>
+            </div>
+        {% endif %}
+        
+    {% endfor %}
+
+
+</div>
+{% endblock %}
